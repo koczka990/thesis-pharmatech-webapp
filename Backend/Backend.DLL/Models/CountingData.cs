@@ -16,5 +16,10 @@ namespace Backend.DLL.Models
         public int RepedtCount { get; set; }
         public int OlajosCount { get; set; }
         public int TorottSzelCount { get; set; }
+
+        public void calcTotal()
+        {
+            TotalCount = JoCount + RepedtCount + OlajosCount + TorottSzelCount;
+        }
     }
 }

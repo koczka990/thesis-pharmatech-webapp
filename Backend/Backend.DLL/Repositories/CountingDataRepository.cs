@@ -13,7 +13,7 @@ namespace Backend.DLL.Repositories
     {
         private DataContext dataContext { get; set; }
 
-        private CountingDataRepository(DataContext dataContext)
+        public CountingDataRepository(DataContext dataContext)
         {
             this.dataContext = dataContext;
         }

@@ -1,7 +1,10 @@
-﻿namespace Backend.Services.Interfaces
+﻿using Backend.DLL.Models;
+
+namespace Backend.Services.Interfaces
 {
     public interface ICountingDataService
     {
-        public void GenerateTestData();
+        public void GenerateTestData(DateTime fromTime, DateTime toTime);
+        public List<CountingData> GetAllData();
     }
 }
