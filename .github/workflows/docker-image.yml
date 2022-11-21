@@ -13,13 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Build and push docker image
-      uses: docker/build-push-action@v2
-      with:
-        context: ./Backend
-        file: ./Backend/Dockerfile
-        platforms: linux/amd64
-        push: false
-        tags: yolo-webapp-be:latest
+      - name: Build & push image
+        uses: docker/build-push-action@v2
+        with:
+            context: ./Backend
+            file: ./Backend/Backend/Dockerfile
       
       
