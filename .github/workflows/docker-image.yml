@@ -33,11 +33,11 @@ jobs:
         password: ${{ secrets.REPOSITORY_TOKEN }}
         
     - name: Build the Docker image
-      run: docker build . --file Backend/Dockerfile --tag ghcr.io:${{ env.IMAGE_NAME }}:latest
+      run: docker build . --file Backend/Dockerfile --tag ghcr.io/${{ env.IMAGE_NAME }}:latest
       working-directory: ./Backend
       
     - name: Push docker image
-      run: docker push hgcr.io:${{ env.IMAGE_NAME }}:latest
+      run: docker push hgcr.io/${{ env.IMAGE_NAME }}:latest
       working-directory: ./Backend
       
       
