@@ -15,6 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Backend/Backend/Dockerfile --tag yolo-webapp-be:latest
+      run: docker build . --file Backend/Dockerfile --tag yolo-webapp-be:latest
+      working-directory: ./Backend
       
       
