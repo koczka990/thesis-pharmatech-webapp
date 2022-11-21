@@ -11,6 +11,7 @@ namespace Backend.DLL.Context
     public class DataContext : DbContext, IDataContext
     {
         public DbSet<CountingData> countingDatas { get; set; }
+        public DbSet<StatData> statDatas { get; set; }
 
         public DataContext() : base() { }
 

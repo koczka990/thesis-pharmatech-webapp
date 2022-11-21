@@ -11,5 +11,6 @@ namespace Backend.DLL.Context
     public interface IDataContext
     {
         public DbSet<CountingData> countingDatas { get; set; }
+        public DbSet<StatData> statDatas { get; set; }
     }
 }
