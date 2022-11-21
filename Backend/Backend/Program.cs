@@ -1,3 +1,9 @@
+using Backend.DLL.Context;
+using Backend.DLL.Repositories;
+using Backend.DLL.Repositories.Interfaces;
+using Backend.Services;
+using Backend.Services.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +12,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<DataContext>();
+
+builder.Services.AddScoped<ICountingDataService, CountingDataService>();
+builder.Services.AddScoped<ICountingDataRepository, CountingDataRepository>();
 
 var app = builder.Build();
 
