@@ -33,11 +33,11 @@ jobs:
         password: ${{ secrets.REPOSITORY_TOKEN }}
         
     - name: Build the Docker image
-      run: docker build . --file Backend/Dockerfile --tag ${ env.IMAGE_NAME }:latest
+      run: docker build . --file Backend/Dockerfile --tag ${{ env.IMAGE_NAME }}:latest
       working-directory: ./Backend
       
     - name: Push docker image
-      run: docker push ${ env.IMAGE_NAME }:latest
+      run: docker push ${{ env.IMAGE_NAME }}:latest
       working-directory: ./Backend
       
       
