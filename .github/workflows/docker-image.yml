@@ -37,7 +37,7 @@ jobs:
       working-directory: ./Backend
       
     - name: Push docker image
-      run: docker push hgcr.io/${{ env.IMAGE_NAME }}:latest
+      run: docker push ghcr.io/${{ env.IMAGE_NAME }}:latest
       working-directory: ./Backend
       
       
