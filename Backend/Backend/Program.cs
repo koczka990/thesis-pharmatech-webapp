@@ -17,6 +17,8 @@ builder.Services.AddDbContext<DataContext>();
 
 builder.Services.AddScoped<ICountingDataService, CountingDataService>();
 builder.Services.AddScoped<ICountingDataRepository, CountingDataRepository>();
+builder.Services.AddScoped<IStatDataService, StatDataService>();
+builder.Services.AddScoped<IStatDataRepository, StatDataRepository>();
 
 var app = builder.Build();
 
