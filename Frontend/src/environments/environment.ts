@@ -10,4 +10,5 @@
 
 export const environment = {
   production: false,
+  baseUrlCountingData: 'https://localhost:44350/api/CountingData'
 };
