@@ -6,6 +6,12 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  # Use docker.io for Docker Hub if empty
+  REGISTRY: ghcr.io
+  # github.repository as <account>/<repo>
+  IMAGE_NAME: ${{ github.repository }}/yolo-webapp-be
+
 jobs:
 
   build:
@@ -13,9 +19,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: checkout repo
     - uses: actions/checkout@v3
+
+      # Login against a Docker registry except on PR
+      # https://github.com/docker/login-action
+    - name: Log into registry ${{ env.REGISTRY }}
+      if: github.event_name != 'pull_request'
+      uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.REPOSITORY_TOKEN }}
+        
     - name: Build the Docker image
-      run: docker build . --file Backend/Dockerfile --tag yolo-webapp-be:latest
+      run: docker build . --file Backend/Dockerfile --tag ${ env.IMAGE_NAME }:latest
       working-directory: ./Backend
+      
+    - name: Push docker image
+      run: docker push ${ env.IMAGE_NAME }:latest
       
       
