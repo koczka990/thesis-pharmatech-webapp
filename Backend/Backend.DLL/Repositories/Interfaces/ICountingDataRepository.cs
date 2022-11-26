@@ -14,5 +14,7 @@ namespace Backend.DLL.Repositories.Interfaces
         public CountingData Get(int id);
         public List<CountingData> GetAll();
         public List<CountingData> GetBetween(DateTime fromTime, DateTime toTime);
+        public CountingData GetOldest();
+        public CountingData GetNewest();
     }
 }

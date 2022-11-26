@@ -14,5 +14,9 @@ namespace Backend.DLL.Repositories.Interfaces
         public StatData Get(int id);
         public List<StatData> GetAll();
         public List<StatData> GetBetween(DateTime fromTime, DateTime toTime);
+        public StatData GetDay(int year, int month, int day);
+        public StatData GetMonth(int year, int month);
+        public StatData GetYear(int year);
+        public void Update(StatData statData);
     }
 }

@@ -15,5 +15,19 @@ namespace Backend.Controllers
             this.statDataService = service;
             this.logger = logger;
         }
+
+        [HttpGet("updateAll")]
+        public IActionResult updateAll()
+        {
+            try
+            {
+                statDataService.UpdateAll();
+                return Ok();
+            }catch(Exception e)
+            {
+                logger.LogError(e.Message);
+                return BadRequest(e.Message);
+            }
+        }
     }
 }

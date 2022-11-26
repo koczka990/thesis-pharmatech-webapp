@@ -18,37 +18,59 @@ namespace Backend.DLL.Repositories
             this.dataContext = dataContext;
         }
 
-        public void Create(StatData countingData)
+        public void Create(StatData statData)
         {
-            dataContext.countingDatas.Add(countingData);
+            dataContext.statDatas.Add(statData);
             dataContext.SaveChanges();
         }
 
-        public void Create(List<StatData> countingData)
+        public void Create(List<StatData> statData)
         {
-            foreach (var data in countingData)
+            foreach (var data in statData)
             {
-                dataContext.countingDatas.Add(data);
+                dataContext.statDatas.Add(data);
             }
             dataContext.SaveChanges();
         }
 
-        public CountingData Get(int id)
+        public StatData Get(int id)
         {
-            return dataContext.countingDatas.FirstOrDefault(x => x.CountingDataId == id);
+            return dataContext.statDatas.FirstOrDefault(x => x.StatDataId == id);
         }
-        public List<CountingData> GetAll()
+        public List<StatData> GetAll()
         {
-            var q = from m in dataContext.countingDatas select m;
+            var q = from m in dataContext.statDatas select m;
             return q.ToList();
         }
 
-        public List<CountingData> GetBetween(DateTime fromTime, DateTime toTime)
+        public List<StatData> GetBetween(DateTime fromTime, DateTime toTime)
         {
-            var q = from m in dataContext.countingDatas
+            var q = from m in dataContext.statDatas
                     where m.FromTime >= fromTime && m.ToTime <= toTime
                     select m;
             return q.ToList();
+        }
+
+        public StatData GetDay(int year, int month, int day)
+        {
+            return dataContext.statDatas.FirstOrDefault(x => x.Year == year && x.Month == month && x.Day == day);
+        }
+        public StatData GetMonth(int year, int month)
+        {
+            return dataContext.statDatas.FirstOrDefault(x => x.Year == year && x.Month == month && x.Day == -1);
+        }
+
+        public StatData GetYear(int year)
+        {
+            return dataContext.statDatas.FirstOrDefault(x => x.Year == year && x.Month == -1 && x.Day == -1);
+        }
+
+        public void Update(StatData statData)
+        {
+            var data = Get(statData.StatDataId);
+            if (data == null) return;
+            dataContext.Update(statData);
+            dataContext.SaveChanges();
         }
     }
 }

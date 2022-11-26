@@ -2,5 +2,6 @@
 {
     public interface IStatDataService
     {
+        void UpdateAll();
     }
 }

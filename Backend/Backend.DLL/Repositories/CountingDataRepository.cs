@@ -50,5 +50,15 @@ namespace Backend.DLL.Repositories
                     select m;
             return q.ToList();
         }
+
+        public CountingData GetOldest()
+        {
+            return dataContext.countingDatas.OrderBy(x => x.CountingDataId).FirstOrDefault();
+        }
+
+        public CountingData GetNewest()
+        {
+            return dataContext.countingDatas.OrderByDescending(x => x.CountingDataId).FirstOrDefault();
+        }
     }
 }
