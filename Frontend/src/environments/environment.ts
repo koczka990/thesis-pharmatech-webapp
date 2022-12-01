@@ -10,5 +10,6 @@
 
 export const environment = {
   production: false,
-  baseUrlCountingData: 'https://localhost:44350/api/CountingData'
+  baseUrlCountingData: 'https://localhost:5209/api/CountingData',
+  baseUrlStatData: 'http://localhost:5209/api/StatData',
 };

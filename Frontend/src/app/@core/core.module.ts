@@ -52,6 +52,10 @@ import { StatsProgressBarService } from './mock/stats-progress-bar.service';
 import { VisitorsAnalyticsService } from './mock/visitors-analytics.service';
 import { SecurityCamerasService } from './mock/security-cameras.service';
 import { MockDataModule } from './mock/mock-data.module';
+import { StatDataInterface } from './data/stat-data';
+import { StatDataService } from './mock/stat-data.service';
+import { CountingDataInterface } from './data/counting-data';
+import { CountingDataService } from './mock/counting-data.service';
 
 const socialLinks = [
   {
@@ -72,6 +76,8 @@ const socialLinks = [
 ];
 
 const DATA_SERVICES = [
+  { provide: StatDataInterface, useClass: StatDataService},
+  { provide: CountingDataInterface, useClass: CountingDataService},
   { provide: UserData, useClass: UserService },
   { provide: ElectricityData, useClass: ElectricityService },
   { provide: SmartTableData, useClass: SmartTableService },

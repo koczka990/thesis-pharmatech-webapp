@@ -99,5 +99,30 @@ namespace Backend.Services
                 statDataRepository.Update(statRecord);
             }
         }
+
+        public StatData GetDay(int year, int month, int day)
+        {
+            return statDataRepository.GetDay(year, month, day);
+        }
+
+        public StatData GetMonth(int year, int month)
+        {
+            return statDataRepository.GetMonth(year, month);
+        }
+
+        public StatData GetYear(int year)
+        {
+            return statDataRepository.GetYear(year);
+        }
+
+        public List<StatData> GetDaysBetween(DateTime fromTime, DateTime toTime)
+        {
+            return statDataRepository.GetDaysBetween(fromTime, toTime);
+        }
+
+        public List<StatData> GetLastSeven()
+        {
+            return statDataRepository.GetLastSeven();
+        }
     }
 }

@@ -23,11 +23,83 @@ namespace Backend.Controllers
             {
                 statDataService.UpdateAll();
                 return Ok();
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 logger.LogError(e.Message);
                 return BadRequest(e.Message);
             }
+        }
+
+        [HttpGet("DaysBetween")]
+        public IActionResult GetDaysBetween(DateTime from, DateTime to)
+        {
+            try
+            {
+                return Ok(statDataService.GetDaysBetween(from, to));
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e.Message);
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpGet("Day")]
+        public IActionResult GetDay(int year, int month, int day)
+        {
+            try
+            {
+                return Ok(statDataService.GetDay(year, month, day));
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e.Message);
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpGet("Month")]
+        public IActionResult GetMonth(int year, int month)
+        {
+            try
+            {
+                return Ok(statDataService.GetMonth(year, month));
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e.Message);
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpGet("Year")]
+        public IActionResult GetYear(int year)
+        {
+            try
+            {
+                return Ok(statDataService.GetYear(year));
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e.Message);
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpGet("lastseven")]
+        public IActionResult GetLastSeven()
+        {
+            try
+            {
+                return Ok(statDataService.GetLastSeven());
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e.Message);
+                return BadRequest(e.Message);
+            }
+
         }
     }
 }

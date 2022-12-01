@@ -20,6 +20,20 @@ builder.Services.AddScoped<ICountingDataRepository, CountingDataRepository>();
 builder.Services.AddScoped<IStatDataService, StatDataService>();
 builder.Services.AddScoped<IStatDataRepository, StatDataRepository>();
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      builder =>
+                      {
+                          //builder.WithOrigins("http://178.128.192.21");
+                          builder.WithOrigins("http://localhost:4200");
+                          builder.AllowAnyHeader();
+                          builder.AllowAnyMethod();
+                          builder.AllowAnyOrigin();
+                      });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -28,6 +42,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(MyAllowSpecificOrigins);
 
 app.UseAuthorization();
 

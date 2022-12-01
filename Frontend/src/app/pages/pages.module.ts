@@ -8,6 +8,7 @@ import { ECommerceModule } from './e-commerce/e-commerce.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { MainDashboardComponent } from './main-dashboard/main-dashboard.component';
+import { MainDashboardModule } from './main-dashboard/main-dashboard.module';
 
 @NgModule({
   imports: [
@@ -17,10 +18,11 @@ import { MainDashboardComponent } from './main-dashboard/main-dashboard.componen
     DashboardModule,
     ECommerceModule,
     MiscellaneousModule,
+    MainDashboardModule,
   ],
   declarations: [
     PagesComponent,
-    MainDashboardComponent,
+    //MainDashboardComponent,
   ],
 })
 export class PagesModule {

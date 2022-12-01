@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StatDataInterface } from '../../@core/data/stat-data';
+import { StatData } from '../../models/StatData';
 
 @Component({
   selector: 'ngx-main-dashboard',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainDashboardComponent implements OnInit {
 
-  constructor() { }
+  data: any[]
+
+  constructor(private statService: StatDataInterface) { }
 
   ngOnInit(): void {
+    this.loadData();
+  }
+
+  loadData(){
+    this.statService.getData().subscribe((res) => {
+      this.data = res;
+      console.log(this.data);
+    });
   }
 
 }

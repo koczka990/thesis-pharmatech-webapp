@@ -29,7 +29,7 @@ namespace Backend.Services
                     {
                         FromTime = start,
                         ToTime = start.AddMinutes(minuteOffset),
-                        JoCount = rnd.Next(100),
+                        JoCount = rnd.Next(100) * rnd.Next(1,3),
                         RepedtCount = rnd.Next(100),
                         OlajosCount = rnd.Next(100),
                         TorottSzelCount = rnd.Next(100),

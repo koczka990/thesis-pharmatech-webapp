@@ -63,7 +63,7 @@ namespace Backend.DLL.Repositories
         public StatData GetYear(int year)
         {
             return dataContext.statDatas.FirstOrDefault(x => x.Year == year && x.Month == -1 && x.Day == -1);
-        }
+        } 
 
         public void Update(StatData statData)
         {
@@ -71,6 +71,28 @@ namespace Backend.DLL.Repositories
             if (data == null) return;
             dataContext.Update(statData);
             dataContext.SaveChanges();
+        }
+
+        public List<StatData> GetDaysBetween(DateTime fromTime, DateTime toTime)
+        {
+            fromTime = new DateTime(fromTime.Ticks, DateTimeKind.Utc);
+            toTime = new DateTime(toTime.Ticks, DateTimeKind.Utc);
+            var q = from m in dataContext.statDatas
+                    .Where(x => x.Year != -1 && x.Month != -1 && x.Day != -1)
+                    .Where(x => x.FromTime >= fromTime && x.ToTime <= toTime)
+                    .OrderBy(x => x.StatDataId)
+                    select m;
+            return q.ToList();
+        }
+
+        public List<StatData> GetLastSeven()
+        {
+            var q = from m in dataContext.statDatas
+                    .Where(x => x.Year != -1 && x.Month != -1 && x.Day != -1)
+                    .OrderByDescending(x => x.StatDataId)
+                    .Take(7)
+                    select m;
+            return q.ToList();
         }
     }
 }
