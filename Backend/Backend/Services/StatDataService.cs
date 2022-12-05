@@ -124,5 +124,15 @@ namespace Backend.Services
         {
             return statDataRepository.GetLastSeven();
         }
+
+        public List<StatData> GetMonthDays(int year, int month)
+        {
+            return statDataRepository.GetMonthDays(year, month);
+        }
+
+        public List<StatData> GetLastMonthDays()
+        {
+            return statDataRepository.GetLastMonthDays();
+        }
     }
 }

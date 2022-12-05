@@ -94,5 +94,22 @@ namespace Backend.DLL.Repositories
                     select m;
             return q.ToList();
         }
+
+        public List<StatData> GetMonthDays(int year, int month)
+        {
+            var q = from m in dataContext.statDatas
+                    where m.Year == year && m.Month == month && m.Day != -1
+                    select m;
+            return q.ToList();
+        }
+
+        public List<StatData> GetLastMonthDays()
+        {
+            var q = dataContext.statDatas
+                .Where(x => x.Year != -1 && x.Month != -1 && x.Day == -1)
+                .OrderByDescending(x => x.Year).ThenByDescending(x => x.Month)
+                .FirstOrDefault();
+            return GetMonthDays(q.Year, q.Month);
+        }
     }
 }

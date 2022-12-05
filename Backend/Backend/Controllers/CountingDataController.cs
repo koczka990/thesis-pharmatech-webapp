@@ -1,4 +1,5 @@
-﻿using Backend.Services.Interfaces;
+﻿using Backend.DLL.Models;
+using Backend.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -38,6 +39,23 @@ namespace Backend.Controllers
                 countingDataService.GenerateTestData(fromTime, toTime);
                 return Ok();
             }catch(Exception e)
+            {
+                logger.LogError(e.Message);
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpPost("Create")]
+        public IActionResult Create(CountingData countingData)
+        {
+            try
+            {
+                countingData.FromTime = countingData.FromTime.ToUniversalTime();
+                countingData.ToTime = countingData.ToTime.ToUniversalTime();
+                countingDataService.Create(countingData);
+                return Ok();
+            }
+            catch (Exception e)
             {
                 logger.LogError(e.Message);
                 return BadRequest(e.Message);

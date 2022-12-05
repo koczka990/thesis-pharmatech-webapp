@@ -20,5 +20,7 @@ namespace Backend.DLL.Repositories.Interfaces
         public void Update(StatData statData);
         List<StatData> GetDaysBetween(DateTime fromTime, DateTime toTime);
         public List<StatData> GetLastSeven();
+        public List<StatData> GetMonthDays(int year, int month);
+        public List<StatData> GetLastMonthDays();
     }
 }

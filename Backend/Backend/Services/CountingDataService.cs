@@ -7,10 +7,10 @@ namespace Backend.Services
 {
     public class CountingDataService : ICountingDataService
     {
-        private readonly ICountingDataRepository repository;
+        private readonly ICountingDataRepository countingDataRepository;
         public CountingDataService(ICountingDataRepository repository)
         {
-            this.repository = repository;
+            this.countingDataRepository = repository;
         }
         public void GenerateTestData([FromQuery]DateTime fromTime, [FromQuery]DateTime toTime)
         {
@@ -39,18 +39,23 @@ namespace Backend.Services
                     list.Add(countingData);
                 }
             }
-            repository.Create(list);
+            countingDataRepository.Create(list);
         }
 
         public List<CountingData> GetAllData()
         {
-            return repository.GetAll();
+            return countingDataRepository.GetAll();
         }
 
         private IEnumerable<DateTime> EachDay(DateTime from, DateTime thru)
         {
             for (var day = from.Date; day.Date <= thru.Date; day = day.AddDays(1))
                 yield return day;
+        }
+
+        public void Create(CountingData countingData)
+        {
+            countingDataRepository.Create(countingData);
         }
     }
 }

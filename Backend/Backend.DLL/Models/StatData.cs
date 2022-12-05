@@ -20,6 +20,14 @@ namespace Backend.DLL.Models
         public int OlajosSum { get; set; }
         public int TorottszelSum { get; set; }
 
+        public StatData()
+        {
+            Year = -1;
+            Month = -1;
+            Day = -1;
+            FromTime = new DateTime(2022, 1, 1);
+            ToTime = new DateTime(2050, 1, 1);
+        }
         public StatData(int year, int month, int day)
         {
             Year = year;

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Backend.DLL.Models.CountingData" Collapsed="true">
+    <Position X="6.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAABABAAAAAAAhAIAAAAAAAAAAAAAAASAAAg=</HashCode>
+      <FileName>Models\CountingData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Backend.DLL.Models.StatData" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIACAAEJBAABACgAAAAgAAAQAAAAAAEAAAAACAAAAA=</HashCode>
+      <FileName>Models\StatData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

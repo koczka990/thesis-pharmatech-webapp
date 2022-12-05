@@ -101,5 +101,33 @@ namespace Backend.Controllers
             }
 
         }
+
+        [HttpGet("LastMonthDays")]
+        public IActionResult GetLastMonthDays()
+        {
+            try
+            {
+                return Ok(statDataService.GetLastMonthDays());
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e.Message);
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpGet("MonthDays")]
+        public IActionResult GetMonthDays(int year, int month)
+        {
+            try
+            {
+                return Ok(statDataService.GetMonthDays(year, month));
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e.Message);
+                return BadRequest(e.Message);
+            }
+        }
     }
 }

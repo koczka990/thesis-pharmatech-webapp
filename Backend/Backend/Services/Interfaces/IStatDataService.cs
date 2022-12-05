@@ -10,5 +10,7 @@ namespace Backend.Services.Interfaces
         StatData GetYear(int year);
         List<StatData> GetDaysBetween(DateTime fromTime, DateTime toTime);
         public List<StatData> GetLastSeven();
+        public List<StatData> GetMonthDays(int year, int month);
+        public List<StatData> GetLastMonthDays();
     }
 }
