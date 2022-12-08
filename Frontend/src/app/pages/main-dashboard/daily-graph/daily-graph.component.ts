@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   templateUrl: './daily-graph.component.html',
 })
 export class DailyGraphComponent {
-    
+    @Input() goodOrBad: Boolean;
 }
