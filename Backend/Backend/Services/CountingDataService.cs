@@ -8,9 +8,11 @@ namespace Backend.Services
     public class CountingDataService : ICountingDataService
     {
         private readonly ICountingDataRepository countingDataRepository;
-        public CountingDataService(ICountingDataRepository repository)
+        private readonly IStatDataService statDataService;
+        public CountingDataService(ICountingDataRepository repository, IStatDataService statDataService)
         {
             this.countingDataRepository = repository;
+            this.statDataService = statDataService;
         }
         public void GenerateTestData([FromQuery]DateTime fromTime, [FromQuery]DateTime toTime)
         {
@@ -56,6 +58,7 @@ namespace Backend.Services
         public void Create(CountingData countingData)
         {
             countingDataRepository.Create(countingData);
+            statDataService.Update(countingData);
         }
     }
 }

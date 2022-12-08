@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { MainDashboardComponent } from './main-dashboard/main-dashboard.component';
+import { StatisticsComponent } from './statistics/statistics.component';
 
 const routes: Routes = [{
   path: '',
@@ -14,6 +15,10 @@ const routes: Routes = [{
     {
       path: 'main-dashboard',
       component: MainDashboardComponent,
+    },
+    {
+      path: 'statistics',
+      component: StatisticsComponent,
     },
     {
       path: 'dashboard',

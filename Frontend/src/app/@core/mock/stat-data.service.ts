@@ -9,6 +9,7 @@ import { Data } from "@angular/router";
 
 @Injectable()
 export class StatDataService extends StatDataInterface {
+  
   baseUrl = environment.baseUrlStatData;
   private httpClient: HttpClient;
 
@@ -76,6 +77,12 @@ export class StatDataService extends StatDataInterface {
     return this.getRecords(url);
   }
 
+  getYear(year: number): Observable<StatData> {
+    var url: string;
+    url = this.getBaseUrl() + '/Year?year=' + year;
+    return this.getRecord(url);
+  }
+
   getMonth(year: number, month: number): Observable<StatData> {
     var url: string;
     url = this.getBaseUrl() + '/Month?year=' + year + '&month=' + month;
@@ -86,6 +93,23 @@ export class StatDataService extends StatDataInterface {
     var url: string;
     url = this.baseUrl;
     return url;
+  }
+
+  getDaysLastMonth(): Observable<StatData[]> {
+    var url: string;
+    url = this.getBaseUrl() + '/LastMonthDays';
+    return this.getRecords(url);
+  }
+  getMonthDays(year: number, month: number): Observable<StatData[]> {
+    var url: string;
+    url = this.getBaseUrl() + '/MonthDays' + '?year=' + year + '&month=' + month;
+    return this.getRecords(url);
+  }
+
+  getYearMonths(year: number): Observable<StatData[]> {
+    var url: string;
+    url = this.getBaseUrl() + '/YearMonths' + '?year=' + year;
+    return this.getRecords(url);
   }
 
 }

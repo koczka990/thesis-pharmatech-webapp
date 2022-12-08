@@ -129,5 +129,19 @@ namespace Backend.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+        [HttpGet("YearMonths")]
+        public IActionResult GetYearMonts(int year)
+        {
+            try
+            {
+                return Ok(statDataService.GetYearMonth(year));
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e.Message);
+                return BadRequest(e.Message);
+            }
+        }
     }
 }

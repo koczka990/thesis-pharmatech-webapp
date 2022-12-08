@@ -12,5 +12,7 @@ namespace Backend.Services.Interfaces
         public List<StatData> GetLastSeven();
         public List<StatData> GetMonthDays(int year, int month);
         public List<StatData> GetLastMonthDays();
+        void Update(CountingData countingData);
+        public List<StatData> GetYearMonth(int year);
     }
 }

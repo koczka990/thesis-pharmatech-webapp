@@ -1,0 +1,9 @@
+<nb-card>
+    <nb-card-header>Év</nb-card-header>
+    <nb-card-body>
+      <nb-select fullWidth selected="0" (selectedChange)="addYear($event)">
+        <nb-option value="0">Összes</nb-option>
+        <nb-option *ngFor="let y of years" [value]="y"> {{ y }}</nb-option> 
+      </nb-select>
+    </nb-card-body>
+</nb-card>

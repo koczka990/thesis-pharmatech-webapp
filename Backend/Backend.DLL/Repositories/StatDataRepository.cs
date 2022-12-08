@@ -111,5 +111,13 @@ namespace Backend.DLL.Repositories
                 .FirstOrDefault();
             return GetMonthDays(q.Year, q.Month);
         }
+
+        public List<StatData> getYearMonths(int year)
+        {
+            var q = from m in dataContext.statDatas
+                    where m.Year == year && m.Month != -1 && m.Day == -1
+                    select m;
+            return q.ToList();
+        }
     }
 }

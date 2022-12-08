@@ -22,5 +22,6 @@ namespace Backend.DLL.Repositories.Interfaces
         public List<StatData> GetLastSeven();
         public List<StatData> GetMonthDays(int year, int month);
         public List<StatData> GetLastMonthDays();
+        public List<StatData> getYearMonths(int year);
     }
 }

@@ -13,7 +13,7 @@
   <Class Name="Backend.Controllers.StatDataController" Collapsed="true">
     <Position X="4.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIAohAEAAAAAAABCAAAAAAAAAAAAAAAABAAAAAAAAQA=</HashCode>
+      <HashCode>AIAohAEAAAAAAABCAAAAAAAACAAAAAAABAAAAAAAAQA=</HashCode>
       <FileName>Controllers\StatDataController.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -28,7 +28,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAIAAEAAABAACAAAAAA=</HashCode>
+      <HashCode>AIAIAAAAAAAAAAAAAAAAAAAAAAIAAEAAABAACAAAAAA=</HashCode>
       <FileName>Services\CountingDataService.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -55,7 +55,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAghgGAAAAAAABAAAAQAAAAACAAgAAABABACAAAAQA=</HashCode>
+      <HashCode>AAQghgGAAAAAAABAAAAQAAAACCAAgAAABABACAAAAQA=</HashCode>
       <FileName>Services\StatDataService.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -84,7 +84,7 @@
   <Interface Name="Backend.Services.Interfaces.IStatDataService" Collapsed="true">
     <Position X="4.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAghAEAAAAAAABAAAAAAAAAAAAAgAAABAAAAAAAAQA=</HashCode>
+      <HashCode>AAQghAEAAAAAAABAAAAAAAAACAAAgAAABAAAAAAAAQA=</HashCode>
       <FileName>Services\Interfaces\IStatDataService.cs</FileName>
     </TypeIdentifier>
   </Interface>

@@ -134,5 +134,51 @@ namespace Backend.Services
         {
             return statDataRepository.GetLastMonthDays();
         }
+
+        public void Update(CountingData countingData)
+        {
+            var date = countingData.FromTime.Date;
+            var yearly = statDataRepository.GetYear(date.Year);
+            var monthly = statDataRepository.GetMonth(date.Year, date.Month);
+            var daily = statDataRepository.GetDay(date.Year, date.Month, date.Day);
+            if(yearly is not null)
+            {
+                yearly.Add(countingData);
+                statDataRepository.Update(yearly);
+            }
+            else
+            {
+                var statData = new StatData(date.Year);
+                statData.Add(countingData);
+                statDataRepository.Create(yearly);
+            }
+            if(monthly is not null)
+            {
+                monthly.Add(countingData);
+                statDataRepository.Update(monthly);
+            }
+            else
+            {
+                var statData = new StatData(date.Year, date.Month);
+                statData.Add(countingData);
+                statDataRepository.Create(yearly);
+            }
+            if (daily is not null)
+            {
+                daily.Add(countingData);
+                statDataRepository.Update(daily);
+            }
+            else
+            {
+                var statData = new StatData(date.Year, date.Month, date.Day);
+                statData.Add(countingData);
+                statDataRepository.Create(yearly);
+            }
+        }
+
+        public List<StatData> GetYearMonth(int year)
+        {
+            return statDataRepository.getYearMonths(year);
+        }
     }
 }
